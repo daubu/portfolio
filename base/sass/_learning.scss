@@ -1,0 +1,95 @@
+#wrap {
+  max-width: 1340px;
+  margin: 0 auto;
+  background: #000;
+  min-height: 100vh;
+}
+
+
+
+ /*For Parent Grid Container
+    grid-template-columns
+    grid-template-rows
+  */
+/*
+.container {
+  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}
+
+
+*/
+.container-grid {
+  background: #fff;
+  
+  width: 80%;
+
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+
+  grid: 1fr 1fr 1fr/ 1fr 1fr 2fr; /* shorthand  <grid-template-rows> / <grid-template-columns> */
+
+  column-gap: 20px;
+  row-gap: 20px;
+  /*   gap: <grid-row-gap> <grid-column-gap>;   ---- A shorthand for row-gap and column-gap*/
+
+
+  align-items: end;      /*  start | end | center | stretch      -   - chiều dọc đứng  */ 
+  justify-items: center;  /*  start | end | center | stretch         -   - chiều ngang  */
+  
+
+  place-items: end center; /* sets both the align-items and justify-items  <align-items>  <justify-items> */
+
+/*  justify-content: center;*/
+
+  @include breakpoint(768px) {    
+    /*display: grid;
+    */
+  }
+
+
+  > div {
+    border: #ccc 2px solid;
+    
+    padding: 20px;
+/*    place-self: stretch stretch;*/
+    &.item-a {
+/*      align-self: stretch;*/
+    }
+    
+    
+
+     
+
+/*    grid-column-start: 1*/
+    /* for Children  - Grid Items
+      grid-column-start
+      grid-column-end
+      grid-row-start
+      grid-row-end
+    */
+  }
+  
+}
+
+
+.container-main {
+  background: #000;
+  width: 600px;
+  padding: 50px;
+  overflow: hidden;
+  li {
+    list-style: none;
+    width: 200px;
+    height: 200px;
+    background: #f1f1f1;
+    margin: 20px;
+    float: left;
+    border: #ccc 1px solid;
+    &:nth-child(1), &:nth-child(3) {
+      margin-top: -20px;
+    }
+  }
+}
+

@@ -1,0 +1,335 @@
+
+@use "mixin" as *;
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+	{
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	outline: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+    display: block;
+}
+
+blockquote {
+	quotes: none;
+}
+
+blockquote:before,blockquote:after {
+	content: '';
+	content: none;
+}
+
+img{
+	vertical-align:middle;
+	max-width:100%;
+}
+iframe{
+	max-width:100%;
+}
+del {
+	text-decoration: line-through;
+}
+a, i{
+	border:none;
+}
+a:hover{text-decoration:none;}
+
+a{
+	text-decoration: none;
+}
+ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul li{
+	margin: 0px;
+	padding: 0px;
+}
+:root{
+    --font-syne: Consolas, Monaco,  Menlo, 'Courier New', monospace;
+	/* Monaco, Menlo, Consolas, "Courier New", monospace; */
+}
+html {
+	
+	padding: 0px;
+	margin: 0px;	
+}
+body{
+	font-family: var(--font-syne);
+	font-size: 16px;
+	line-height: 25px;
+	letter-spacing: 0px;
+	word-wrap: break-word;
+	font-weight: 400;
+	background-color: #fff;
+	color: #666;
+	
+}
+
+svg{
+	fill: currentcolor;
+	width: 15px;
+	height: 15px;
+}
+img.svg{
+	width: 15px;
+	height: 15px;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+   color: #666;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #666;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #666;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #666;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: #666;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color: #666;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight:700;
+	line-height: 1.3;
+	font-family: var(--font-syne);
+	color: #000;
+	font-variant-numeric: lining-nums proportional-nums;
+}
+
+h1 { 
+	
+	font-size: 40px;
+	@include breakpoint(500px) {    
+		font-size: 45px;
+	}
+}
+h2 { font-size: 36px; }
+h3 { font-size: 30px; }
+h4 { font-size: 24px; }
+h5 { font-size: 20px; }
+h6 { font-size: 16px; }
+
+.all_wrap{
+	width: 100%;
+	height: auto;
+	clear: both;
+	position: relative;
+}
+.all_wrap,
+.all_wrap *{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	   -moz-box-sizing: border-box; /* Firefox, other Gecko */
+			box-sizing: border-box; /* Opera/IE 8+ */
+}
+.clearfix:after,
+.clearfix:before{
+	clear: both;
+	display: table;
+	content: '';
+}
+.section{
+	width: 100%;
+	height:auto;
+	clear: both;
+}
+.cryptedmail {
+	color: #666;
+	&::after {
+		content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
+		color: #666;
+	  }
+}
+#preloader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 99999;
+    display: flex;
+	&::before, &::after{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 50%;
+		height: 100%;
+		z-index: -1;
+		background-color: #000;
+		-webkit-transition: all 0.3s ease 0s;
+		-o-transition: all 0.3s ease 0s;
+		transition: all 0.3s ease 0s;
+	}
+	&::after{
+		left: auto;
+		right: 0;
+	}
+	.loader_line{
+		margin: auto;
+		width: 1px;
+		height: 250px;
+		position: relative;
+		overflow: hidden;
+		-webkit-transition: all 0.8s ease 0s;
+		-o-transition: all 0.8s ease 0s;
+		transition: all 0.8s ease 0s;
+	}
+}
+
+ 
+.loader_line {
+	&::before{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 1px;
+		height: 0%;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
+		background-color: #fff;
+		-webkit-animation: lineheight 1000ms ease-in-out 0s forwards;
+		-o-animation: lineheight 1000ms ease-in-out 0s forwards;
+		animation: lineheight 1000ms ease-in-out 0s forwards;
+	}
+	&::after{
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1px;
+		height: 100%;
+		background-color: #999999;
+		-webkit-transform: translateY(-100%);
+		-ms-transform: translateY(-100%);
+		-o-transform: translateY(-100%);
+		transform: translateY(-100%);
+		-webkit-animation: lineround 1200ms linear 0s infinite;
+		-o-animation: lineround 1200ms linear 0s infinite;
+		animation: lineround 1200ms linear 0s infinite;
+		animation-delay: 2000ms;
+	}
+}
+ 
+
+@keyframes lineheight{
+    0%{
+        height: 0%;
+    }
+    100%{
+        height: 100%;
+    }
+}
+
+@keyframes lineround{
+    0%{
+        -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+    100%{
+        -webkit-transform: translateY(200%);
+        -ms-transform: translateY(200%);
+        -o-transform: translateY(200%);
+        transform: translateY(200%);
+    }
+}
+
+/*hiding all*/
+
+.preloaded {
+	.loader_line {
+		&:after {
+			opacity: 0;
+		}
+		opacity: 0;
+		height: 100% !important;
+	}
+	&:before {
+		-webkit-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+		-o-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+		animation: preloadedzero 300ms ease-in-out 500ms forwards;
+	}
+	&:after {
+		-webkit-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+		-o-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+		animation: preloadedzero 300ms ease-in-out 500ms forwards;
+	}
+}
+
+@keyframes preloadedzero{
+    0%{
+        width: 50%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+.container{
+	max-width: 1210px;
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+	height:auto;
+	padding:0px 20px;
+	position:relative;
+	clear:both;
+}
+.section{
+	width: 100%;
+}
+
+.scroll-down {
+	position: absolute;
+	bottom: -32px;
+    right: -3px;
+	display: none;
+	@include breakpoint(500px) {  
+		display: block;
+		
+	}
+	img {
+		width: 100px;
+		height: auto;
+		animation: rotate360 6s linear infinite;
+	}
+	&.mobile {
+		display: block;
+		bottom: 20px;
+		right: 40%;
+		img {
+			width: 80px;
+		}
+		@include breakpoint(500px) {  
+			display: none;
+			
+		}
+	}
+	
+}
+@keyframes rotate360 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
